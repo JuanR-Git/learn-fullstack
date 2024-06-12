@@ -249,4 +249,214 @@ sttr.match(regex);
 // filter()
 // reduce()
 
+// pop() - Removes the last element of the array
 
+// shift() - This is going to remove the first element of the array
+
+// push() - this takes an element or more than one element and moves it to the end of the array
+
+// unshift() - this is going to add an element or some elements to the beginning of the array
+const array = [1, 2, 3, 5, 6]; 
+array.pop()
+array.pop()
+arr.push(4,5,6);
+arr.unshift(0); 
+
+// slice() - to optional paramaters start and end, copies parts/all of an array
+
+const copyArr = array.slice();
+const anotherCopy = array.slice(3); 
+
+// splice() - this method changes the contents of an array by removing or replacing elements
+
+const newArr =  [1, 2, 3, 'oops', 4, 5, 6];
+newArr.splice(3,1,3.5); 
+
+// An array is mutable so the methods we are using do not make copies (string is not mutable)
+
+// findIndex() - it returns the index of the first element that satisfies the provided testing functions, returns -1 if nothing matches
+
+// indexOf() - returns the first index where the given element is found
+
+const moreComplexArr = [
+    {
+        firstName: 'Bob',
+        lastName: 'Smith'
+    },
+    {
+        firstName: 'Alice',
+        lastName: 'Smith'
+    },
+    {
+        firstName: 'Jon',
+        lastName: 'Smith',
+    },
+    {
+        firstName: 'Jon',
+        lastName: 'Doe'
+    }
+];
+
+moreComplexArr.findIndex((arrItem) => {
+    return arrItem.lastName != 'Smith';
+  })
+
+// map() - applies a function to every element of an array
+
+const blogPostsFromDatabase = [
+    {
+        title: 'How to use the map() function',
+        category: 'uncategorized'
+    },
+    {
+        title: 'What is Javascript?',
+        category: 'uncategorized'
+    },
+    {
+        title: 'Whhy are you crazy enough to learn to code?',
+        category: 'uncategorized'
+    }
+];
+
+blogPostsFromDatabase.map(arrItem => {
+    arrItem.category = 'Web Development';
+      return arrItem;
+});
+
+// forEach() - basically another way to write a forloop for an array
+
+for(let i = 0; i < array.length; i++) {
+    consolelog(array[i]);
+}
+
+array.forEach(arrItem => {
+    console.log(arrItem)
+})
+
+array.forEach((arrayItem, index) => {
+    console.log(arrayItem);
+      console.log(index);
+  })
+
+// includes
+const myColors = ['blue', 'red', 'purple', 'orange', 'green'];
+
+let orangeExists = false;
+for (let i = 0; i < myColors.length; i++) {
+    if (myColors[i] === 'orange') {
+        orangeExists = true;
+    }
+}
+
+myColors.forEach(color => {
+    if (color === 'orange') {
+        orangeExists = true;
+    }
+});
+
+myColors.includes('orange');
+
+myColors.indexOf('orange') !== -1;
+
+// filter() - filters out different results
+
+const allOrders = [
+    {
+        productName: 'Tea pot',
+        isDigital: false,
+        isCancelled: false,
+        isOpen: false
+    },
+    {
+        productName: 'Blue Gildan Mens Hoodie',
+        isDigital: false,
+        isCancelled: true,
+        isOpen: false
+    },
+    {
+        productName: 'Code Complete Kindle Book',
+        isDigital: true,
+        isCancelled: true,
+        isOpen: false
+    }, 
+    {
+        productName: 'Atmoic Habits Kindle Book',
+        isDigital: true,
+        isCancelled: false,
+        isOpen: false
+    } 
+];
+
+const digitalOrders = allOrders.filter(arrItem => {
+    return arrItem.isDigital;
+  });
+
+const digitalCancelledOrders = allOrders.filter((orderItem) => {
+    return orderItem.isDigital && orderItem.isCancelled;
+});
+
+// reduce() - 
+
+const ar = [10, 20, 30, 25, 14];
+let sum = 0;
+for(let i = 0; i < ar.length; i++) {
+    sum += ar[i];
+}
+console.log(sum);
+
+function reducerCallback(sum, arrItem) {
+    return sum += arrItem;
+}
+
+const results = ar.reduce(reducerCallback, 0);
+
+
+array.reduce((sum, arrItem) => sum += arrItem, 0) /array.length
+
+// MATH UTILITIES
+// Refer to Mozilla
+
+// ERROR TYPES AND OTHER JAVASCRIPT CONCEPTS
+// referenceError
+// typeError
+// syntaxError
+
+// ReferenceError() - represents an error when a non-existent variable is referenced
+
+// SyntaxError() - This is when you're writing invalid javaScript
+
+// TypeError() - an error where an operation can not be preformed because you're doing it on a variable or a datatype that does not have that operation
+
+// error handling
+
+try {
+    var num = 20;
+    num.toUpperCase();
+} catch (error) {
+    console.log(error instanceof TypeError)
+    console.log(error.message);
+}
+
+// OTHER DATATYPES
+// NaN
+Number('some string'); // returns Nan (not a number)
+'some string' / 2;
+'some string' * 2;
+
+// undefined
+let myvar;
+console.log(myvar);  // returns undefined
+if (myvar) {
+    console.log('this will not be reached');
+} else {
+    console.log('this will be reached')  // returned
+}
+
+// null
+let numb = null;
+
+if (numb) {
+    console.log('this will not be reached');
+} else {
+    console.log('this will be reached')  //returned
+}
