@@ -150,9 +150,9 @@ const regex3 = new RegExp('FavouritE');  // is case sensitive
 
 /[A-Z]/.test(string1);  // matching all upper case letters -> false, does not match
 
-/[a-z]/.test(string1);  // matching all lower case letters -> true, does not match at least one of those letters
+/[a-z]/.test(string1);  // matching all lower case letters -> true, does match at least one of those letters
 
-/[0-9]/.test(string1);  // matching all unmbers -> true, does not match at least one of those letters
+/[0-9]/.test(string1);  // matching all unmbers -> true, does match at least one of those letters
 
 /[A-Za-z0-9 ]/.test(string1);  // matching all upper case & lower case letters, numbers and spaces -> true, paramaters match at least one of the items
 
