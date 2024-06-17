@@ -236,7 +236,7 @@ for (let i = 0; i < externalData.length; i ++) {
 // match
 const rgex = /[a-z]+/;
 const sttr = 'asfwefkojubnmaq';
-sttr.match(regex);
+sttr.match(rgex);
 
 // ARRAY METHODS
 // push() / pop() / shift() / unshift()

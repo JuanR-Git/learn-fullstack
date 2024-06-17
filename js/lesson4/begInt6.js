@@ -7,7 +7,13 @@ Make sure that your function does not return a false positive by only checking t
 // solution
 function isToday(date) {
     //Code goes here.
-    let current_date = Date();
-    
-    return Date.UTC(date) === Date.UTC(current_date)
+    const current = new Date();
+    console.log("current date: ", current);
+    console.log("given date: ", date);
+    return current.getFullYear() === date.getFullYear() && current.getMonth() === date.getMonth() && current.getDate() === date.getDate();
 }
+
+// other solution
+// function isToday(date) {
+//     return new Date().toDateString() === date.toDateString();
+//   }
